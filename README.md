@@ -1,7 +1,7 @@
+THIS REPOSITORY IS CURRENTLY IN A WORK IN PROGRESS STATE, THIS IS NOT READY FOR GENERAL USE YET.
+
 # Bug-Fables-Data-Editor
 A data editor for the game [Bug Fables: The Everlasting Sapling](https://store.steampowered.com/app/1082710/Bug_Fables_The_Everlasting_Sapling/) made in .NET 5. 
-
-THIS REPOSITORY IS CURRENTLY IN A WORK IN PROGRESS STATE, THIS IS NOT READY FOR GENERAL USE YET.
 
 This program is supported on Windows and Linux. It uses the [Avalonia UI](http://avaloniaui.net/) framework which offers a rich UI and many features to make developing very comfortable for WPF and .NET developers.
 
