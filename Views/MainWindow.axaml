@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BugFablesDataEditor.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:BugFablesDataEditor.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BugFablesDataEditor.Views.MainWindow"
+        Title="Bug Fables Data Editor"
+        Icon="/Assets/icon.png"
+        WindowStartupLocation="CenterScreen">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <DockPanel>
+    <views:WindowsTitleBar IsVisible="False" Name="windowsTitleBar" />
+    <DockPanel>
+      <Menu DockPanel.Dock="Top">
+        <MenuItem Header="File">
+          <MenuItem Command="{Binding NewDirectory}" Header="New"/>
+          <MenuItem Command="{Binding OpenDirectory}" Header="Open..."/>
+          <MenuItem Command="{Binding CmdSaveDirectory}" Header="Save as..."/>
+          <Separator/>
+          <MenuItem Command="{Binding Exit}" Header="Exit"/>
+        </MenuItem>
+        <MenuItem Header="Help">
+          <MenuItem Header="About" Click="OnAbout_Click" />
+        </MenuItem>
+      </Menu>
+      <DockPanel>
+        <StackPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Vertical">
+          <Label FontWeight="SemiBold" FontSize="18" Content="{Binding CurrentDirectoryPath}" HorizontalContentAlignment="Center"/>
+          <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Command="{Binding NewDirectory}" Content="New directory" Margin="5"/>
+            <Button Command="{Binding OpenDirectory}" Content="Open directory..." Margin="5"/>
+            <Button Command="{Binding CmdSaveDirectory}" Content="Save directory..." Margin="5"/>
+          </StackPanel>
+          <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label VerticalContentAlignment="Center" Content="Current Map"/>
+            <ComboBox Width="200" />
+            <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Name"/>
+            <ComboBox Width="300"/>
+          </StackPanel>
+        </StackPanel>
+        <TabControl HorizontalAlignment="Center" IsEnabled="{Binding DirectoryInUse}">
+        </TabControl>
+      </DockPanel>
+    </DockPanel>
+  </DockPanel>
+</Window>
