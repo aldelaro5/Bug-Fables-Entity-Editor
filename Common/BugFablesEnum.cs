@@ -4,15 +4,18 @@ namespace BugFablesDataEditor.BugFablesEnums
 {
   public enum NPCType
   {
-    NPC = 0,
+    UNDEFINED = -1,
+    NPC,
     Enemy,
     Object,
-    SemiNPC
+    SemiNPC,
+    COUNT
   }
 
   public enum Interaction
   {
-    None = 0,
+    UNDEFINED = -1,
+    None,
     Talk,
     Check,
     SavePoint,
@@ -24,12 +27,14 @@ namespace BugFablesDataEditor.BugFablesEnums
     StorageAnt,
     CaravanBadge,
     VenusHeal,
-    LockedDoor
+    LockedDoor,
+    COUNT
   }
 
   public enum DeathType
   {
-    None = 0,
+    UNDEFINED = -1,
+    None,
     SpinSmoke,
     Smoke,
     Shrink,
@@ -42,12 +47,14 @@ namespace BugFablesDataEditor.BugFablesEnums
     NinjaLog,
     Sink,
     ExplodeAnim,
-    DropSprites
+    DropSprites,
+    COUNT
   }
 
   public enum ActionBehaviors
   {
-    None = 0,
+    UNDEFINED = -1,
+    None,
     FacePlayer,
     ChasePlayer,
     FleeFromPlayer,
@@ -82,12 +89,14 @@ namespace BugFablesDataEditor.BugFablesEnums
     WanderOffscreen,
     WanderNoWarp,
     WanderOnWater,
-    ChaseOnWater
+    ChaseOnWater,
+    COUNT
   }
 
   public enum ObjectTypes
   {
-    None = 0,
+    UNDEFINED = -1,
+    None,
     BeetleGrass,
     PushRock,
     PressurePlate,
@@ -125,7 +134,8 @@ namespace BugFablesDataEditor.BugFablesEnums
     TriggerSwitch,
     WindPusher,
     WaterSwitch,
-    BattleMapChange
+    BattleMapChange,
+    COUNT
   }
 
   public enum SaveFileSection

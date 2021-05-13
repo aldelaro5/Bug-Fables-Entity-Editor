@@ -16,14 +16,14 @@ namespace BugFablesDataEditor.Models
       set { _name = value; NotifyPropertyChanged(); }
     }
 
-    private NPCType _entityType;
+    private NPCType _entityType = NPCType.UNDEFINED;
     public NPCType EntityType
     {
       get { return _entityType; }
       set { _entityType = value; NotifyPropertyChanged(); }
     }
 
-    private ObjectTypes objectTypes;
+    private ObjectTypes objectTypes = ObjectTypes.UNDEFINED;
     public ObjectTypes ObjectType
     {
       get { return objectTypes; }
@@ -37,21 +37,21 @@ namespace BugFablesDataEditor.Models
       set { _behaviors = value; NotifyPropertyChanged(); }
     }
 
-    private Interaction _interactType;
+    private Interaction _interactType = Interaction.UNDEFINED;
     public Interaction InteractType
     {
       get { return _interactType; }
       set { _interactType = value; NotifyPropertyChanged(); }
     }
 
-    private DeathType _destroyType;
+    private DeathType _destroyType = DeathType.UNDEFINED;
     public DeathType DestroyType
     {
       get { return _destroyType; }
       set { _destroyType = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _startPos;
+    private Vector3 _startPos = new Vector3();
     public Vector3 StartPos
     {
       get { return _startPos; }
@@ -156,14 +156,14 @@ namespace BugFablesDataEditor.Models
       set { _boxColIsTrigger = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _boxColSizr;
+    private Vector3 _boxColSizr = new Vector3();
     public Vector3 BoxColSize
     {
       get { return _boxColSizr; }
       set { _boxColSizr = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _boxColCenter;
+    private Vector3 _boxColCenter = new Vector3();
     public Vector3 BoxColCenter
     {
       get { return _boxColCenter; }
@@ -177,14 +177,14 @@ namespace BugFablesDataEditor.Models
       set { _freezeTime = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _freezeSize;
+    private Vector3 _freezeSize = new Vector3();
     public Vector3 FreezeSize
     {
       get { return _freezeSize; }
       set { _freezeSize = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _freezeOffset;
+    private Vector3 _freezeOffset = new Vector3();
     public Vector3 FreezeOffset
     {
       get { return _freezeOffset; }
@@ -268,7 +268,7 @@ namespace BugFablesDataEditor.Models
       set { _dialogues = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _eulerAngles;
+    private Vector3 _eulerAngles = new Vector3();
     public Vector3 EulerAngles
     {
       get { return _eulerAngles; }
@@ -289,14 +289,14 @@ namespace BugFablesDataEditor.Models
       set { _battleIds = value; NotifyPropertyChanged(); }
     }
 
-    private Color _tagColor;
+    private Color _tagColor = new Color();
     public Color TagColor
     {
       get { return _tagColor; }
       set { _tagColor = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3 _emoticonOffset;
+    private Vector3 _emoticonOffset = new Vector3();
     public Vector3 EmoticonOffset
     {
       get { return _emoticonOffset; }
@@ -364,6 +364,15 @@ namespace BugFablesDataEditor.Models
     {
       get { return _returnToHeight; }
       set { _returnToHeight = value; NotifyPropertyChanged(); }
+    }
+
+    public Entity()
+    {
+      VectorData.Initialize();
+      Dialogues.Initialize();
+      EmoticonFlag.Initialize();
+      Behaviors[0] = ActionBehaviors.UNDEFINED;
+      Behaviors[1] = ActionBehaviors.UNDEFINED;
     }
 
     public string EncodeToEntityLine()

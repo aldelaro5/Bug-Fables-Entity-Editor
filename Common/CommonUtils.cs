@@ -125,7 +125,8 @@ namespace BugFablesDataEditor
     {
       var type = typeof(T);
       var values = Enum.GetValues<T>().ToList();
-      values.Remove(values.Last());
+      values.RemoveAll(x => x.ToString() == "UNDEFINED");
+      values.RemoveAll(x => x.ToString() == "COUNT");
       string[] descriptions = new string[values.Count];
       for (int i = 0; i < values.Count; i++)
       {

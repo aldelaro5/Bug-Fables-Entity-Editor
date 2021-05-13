@@ -1,8 +1,10 @@
 using Avalonia.Controls;
+using BugFablesDataEditor.BugFablesEnums;
 using BugFablesDataEditor.Models;
 using Common.MessageBox.Enums;
 using ReactiveUI;
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 
@@ -11,6 +13,14 @@ namespace BugFablesDataEditor.ViewModels
   public class MainWindowViewModel : ViewModelBase
   {
     private bool directorySaved = false;
+    private string[] mapDescriptions = CommonUtils.GetEnumDescriptions<Map>();
+    private Entity defaultEnitty = new Entity();
+
+    private string[] _npcTypesDescription = CommonUtils.GetEnumDescriptions<NPCType>();
+    public string[] NPCTypesDescription
+    {
+      get { return _npcTypesDescription; }
+    }
 
     private string _currentDirectoryPath = "No entity directory, open an existing directory or create a new one";
     public string CurrentDirectoryPath
@@ -31,6 +41,72 @@ namespace BugFablesDataEditor.ViewModels
     {
       get { return _directoryInUse; }
       set { _directoryInUse = value; this.RaisePropertyChanged(); }
+    }
+
+    private ObservableCollection<string> _keysDescriptions = new ObservableCollection<string>();
+    public ObservableCollection<string> KeysDescriptions
+    {
+      get { return _keysDescriptions; }
+      set { _keysDescriptions = value; this.RaisePropertyChanged(); }
+    }
+
+    private ObservableCollection<string> _lineIndexesDescriptions = new ObservableCollection<string>();
+    public ObservableCollection<string> LineIndexesDescriptions
+    {
+      get { return _lineIndexesDescriptions; }
+      set { _lineIndexesDescriptions = value; this.RaisePropertyChanged(); }
+    }
+
+    private int _selectedKeyIndex = -1;
+    public int SelectedKeyIndex
+    {
+      get { return _selectedKeyIndex; }
+      set
+      {
+        _selectedKeyIndex = value;
+        this.RaisePropertyChanged();
+        this.RaisePropertyChanged(nameof(CurrentEntity));
+        if (CurrentKey != -1)
+        {
+          SelectedLineIndex = -1;
+          RebuildLineIndexesDescriptions();
+        }
+      }
+    }
+
+    private int _selectedLineIndex = -1;
+    public int SelectedLineIndex
+    {
+      get { return _selectedLineIndex; }
+      set
+      {
+        _selectedLineIndex = value;
+        this.RaisePropertyChanged();
+        this.RaisePropertyChanged(nameof(CurrentEntity));
+      }
+    }
+
+    public int CurrentKey
+    {
+      get
+      {
+        if (SelectedKeyIndex < 0)
+          return -1;
+        else if (SelectedKeyIndex < (int)Map.COUNT)
+          return SelectedKeyIndex;
+        else
+          return int.Parse(KeysDescriptions[SelectedKeyIndex]);
+      }
+    }
+
+    public Entity CurrentEntity
+    {
+      get
+      {
+        if (CurrentKey == -1 || SelectedLineIndex == -1)
+          return defaultEnitty;
+        return EntityDirectory.Entities[CurrentKey][SelectedLineIndex];
+      }
     }
 
     public ReactiveCommand<Unit, Unit> CmdSaveDirectory { get; set; }
@@ -73,8 +149,6 @@ namespace BugFablesDataEditor.ViewModels
       }, this.WhenAnyValue(x => x.DirectoryInUse));
     }
 
-
-
     public async void NewDirectory()
     {
       if (DirectoryInUse && !directorySaved)
@@ -91,6 +165,7 @@ namespace BugFablesDataEditor.ViewModels
       CurrentDirectoryPath = "New directory being created, save it to store it";
       DirectoryInUse = true;
       directorySaved = false;
+      RebuildKeysDescriptions();
     }
 
     public async void OpenDirectory()
@@ -108,6 +183,9 @@ namespace BugFablesDataEditor.ViewModels
       OpenFolderDialog dlg = new OpenFolderDialog();
       dlg.Title = "Select a Bug Fables entitydata directory";
       string filePaths = await dlg.ShowAsync(CommonUtils.MainWindow);
+      if (string.IsNullOrEmpty(filePaths))
+        return;
+
       try
       {
         EntityDirectory.ResetToDefault();
@@ -115,6 +193,7 @@ namespace BugFablesDataEditor.ViewModels
         CurrentDirectoryPath = filePaths;
         DirectoryInUse = true;
         directorySaved = true;
+        RebuildKeysDescriptions();
       }
       catch (Exception ex)
       {
@@ -123,6 +202,30 @@ namespace BugFablesDataEditor.ViewModels
                     "An error occured while opening the directory: " + ex.Message, ButtonEnum.Ok, Icon.Error);
         await msg.ShowDialog(CommonUtils.MainWindow);
       }
+    }
+
+    private void RebuildKeysDescriptions()
+    {
+      KeysDescriptions.Clear();
+      foreach (var key in EntityDirectory.Entities.Keys.OrderBy(x => x))
+      {
+        if (key < 0 || key >= (int)Map.COUNT)
+          KeysDescriptions.Add(key.ToString());
+        else
+          KeysDescriptions.Add(mapDescriptions[key]);
+      }
+      this.RaisePropertyChanged(nameof(KeysDescriptions));
+    }
+
+
+    private void RebuildLineIndexesDescriptions()
+    {
+      LineIndexesDescriptions.Clear();
+      for (int i = 0; i < EntityDirectory.Entities[CurrentKey].Count; i++)
+      {
+        LineIndexesDescriptions.Add(i + " - " + EntityDirectory.Entities[CurrentKey][i].Name);
+      }
+      this.RaisePropertyChanged(nameof(LineIndexesDescriptions));
     }
 
     public void Exit()
