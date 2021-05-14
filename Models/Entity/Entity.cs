@@ -1,4 +1,5 @@
-﻿using BugFablesDataEditor.BugFablesEnums;
+﻿using Avalonia.Media;
+using BugFablesDataEditor.BugFablesEnums;
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -58,7 +59,7 @@ namespace BugFablesDataEditor.Models
       set { _startPos = value; NotifyPropertyChanged(); }
     }
 
-    private int _animId;
+    private int _animId = -1;
     public int AnimId
     {
       get { return _animId; }
@@ -511,13 +512,13 @@ namespace BugFablesDataEditor.Models
         sb.Append(BattleIds[i]);
         sb.Append(CommonUtils.FieldSeparator);
       }
-      sb.Append(TagColor.r);
+      sb.Append(TagColor.R);
       sb.Append(CommonUtils.FieldSeparator);
-      sb.Append(TagColor.g);
+      sb.Append(TagColor.G);
       sb.Append(CommonUtils.FieldSeparator);
-      sb.Append(TagColor.b);
+      sb.Append(TagColor.B);
       sb.Append(CommonUtils.FieldSeparator);
-      sb.Append(TagColor.a);
+      sb.Append(TagColor.A);
       sb.Append(CommonUtils.FieldSeparator);
       sb.Append(EmoticonOffset.x);
       sb.Append(CommonUtils.FieldSeparator);
@@ -699,10 +700,7 @@ namespace BugFablesDataEditor.Models
       BattleIdsLength = 0;
       for (int i = 0; i < BattleIds.Length; i++)
         BattleIds[i] = 0;
-      TagColor.r = 0;
-      TagColor.g = 0;
-      TagColor.b = 0;
-      TagColor.a = 0;
+      TagColor = default(Color);
       EmoticonOffset.x = 0f;
       EmoticonOffset.y = 0f;
       EmoticonOffset.z = 0f;
@@ -761,20 +759,20 @@ namespace BugFablesDataEditor.Models
     private Color ParseColor(string[] data, int fieldIndex, string nameColor)
     {
       float floatOut = 0;
-      Color color = new Color();
+      float r, g, b, a = 0f;
       if (!float.TryParse(data[fieldIndex], NumberStyles.Float, NumberFormatInfo.InvariantInfo, out floatOut))
-        throw new Exception(nameColor + "." + nameof(Color.r) + " failed to parse");
-      color.r = floatOut;
+        throw new Exception(nameColor + "." + nameof(Color.R) + " failed to parse");
+      r = floatOut;
       if (!float.TryParse(data[fieldIndex + 1], NumberStyles.Float, NumberFormatInfo.InvariantInfo, out floatOut))
-        throw new Exception(nameColor + "." + nameof(Color.g) + " failed to parse");
-      color.g = floatOut;
+        throw new Exception(nameColor + "." + nameof(Color.G) + " failed to parse");
+      g = floatOut;
       if (!float.TryParse(data[fieldIndex + 2], NumberStyles.Float, NumberFormatInfo.InvariantInfo, out floatOut))
-        throw new Exception(nameColor + "." + nameof(Color.b) + " failed to parse");
-      color.b = floatOut;
+        throw new Exception(nameColor + "." + nameof(Color.B) + " failed to parse");
+      b = floatOut;
       if (!float.TryParse(data[fieldIndex + 2], NumberStyles.Float, NumberFormatInfo.InvariantInfo, out floatOut))
-        throw new Exception(nameColor + "." + nameof(Color.a) + " failed to parse");
-      color.a = floatOut;
-      return color;
+        throw new Exception(nameColor + "." + nameof(Color.A) + " failed to parse");
+      a = floatOut;
+      return Color.FromArgb((byte)a, (byte)r, (byte)g, (byte)b);
     }
 
     private int ParseInt(string[] data, int fieldIndex, string nameInt)

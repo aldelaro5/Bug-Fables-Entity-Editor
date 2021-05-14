@@ -15,18 +15,18 @@
       <Label VerticalContentAlignment="Center" Content="X"/>
       <NumericUpDown Value="{Binding CurrentEntity.StartPos.x}"/>
       <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.StartPos.y}"/>
       <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.StartPos.z}"/>
     </StackPanel>
     <Label Content="Starting angles"/>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.x}"/>
       <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.y}"/>
       <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.z}"/>
     </StackPanel>
   </StackPanel>
 </UserControl>

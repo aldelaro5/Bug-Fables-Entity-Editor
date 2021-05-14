@@ -43,7 +43,7 @@
             <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Name"/>
             <ComboBox Width="300" SelectedIndex="{Binding SelectedLineIndex}" Items="{Binding LineIndexesDescriptions}"/>
             <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Tag color"/>
-            <colorpicker:ColorButton />
+            <colorpicker:ColorButton Color="{Binding CurrentEntity.TagColor}"/>
           </StackPanel>
         </StackPanel>
         <TabControl HorizontalAlignment="Center">

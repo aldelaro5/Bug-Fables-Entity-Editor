@@ -2034,8 +2034,9 @@ namespace BugFablesDataEditor.BugFablesEnums
 
   public enum AnimID
   {
+    UNDEFINED = -1,
     [Description("Vi")]
-    Bee = 0,
+    Bee,
     [Description("Kabbu")]
     Beetle,
     [Description("Leif")]

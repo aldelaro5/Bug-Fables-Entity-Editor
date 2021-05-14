@@ -16,31 +16,39 @@
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:NPCType}}" Items="{Binding NPCTypesDescription}" />
       <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Object type"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.ObjectType,
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:ObjectTypes}}" Items="{Binding ObjectTypesDescription}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Interact type"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.InteractType,
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:Interaction}}" Items="{Binding InteractionsDescription}"/>
       <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Destroy type"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.DestroyType,
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:DeathType}}" Items="{Binding DeathTypeDescription}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Anim ID"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.AnimId,
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:AnimID}}" Items="{Binding AnimIdDescription}"/>
       <Label VerticalContentAlignment="Center" Content="Flip"/>
-      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.Flip}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Event ID"/>
-      <NumericUpDown/>
+      <NumericUpDown Value="{Binding CurrentEntity.EventId}"/>
       <Label VerticalContentAlignment="Center" Content="Inside ID"/>
-      <NumericUpDown/>
+      <NumericUpDown Value="{Binding CurrentEntity.InsideId}"/>
       <Label VerticalContentAlignment="Center" Content="Tattle ID"/>
-      <NumericUpDown/>
+      <NumericUpDown Value="{Binding CurrentEntity.TattleId}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Regional flag"/>
-      <NumericUpDown/>
+      <NumericUpDown Value="{Binding CurrentEntity.RegionalFlag}"/>
       <Label VerticalContentAlignment="Center" Content="Activation flag"/>
       <NumericUpDown Value="{Binding CurrentEntity.ActivationFlag}"/>
     </StackPanel>

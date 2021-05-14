@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using BugFablesDataEditor.Models;
 using BugFablesDataEditor.ViewModels;
 using BugFablesDataEditor.Views;
 
@@ -19,7 +20,7 @@ namespace BugFablesDataEditor
       {
         desktop.MainWindow = new MainWindow
         {
-          DataContext = new MainWindowViewModel(),
+          DataContext = new MainWindowViewModel(new EntityDirectory()),
         };
       }
 

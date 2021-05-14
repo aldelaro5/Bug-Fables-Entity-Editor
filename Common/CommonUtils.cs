@@ -69,7 +69,7 @@ namespace BugFablesDataEditor
     }
   }
 
-  public class Color : INotifyPropertyChanged
+  /*public class Color : INotifyPropertyChanged
   {
     private float _r;
     public float r
@@ -104,7 +104,7 @@ namespace BugFablesDataEditor
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-  }
+  }*/
 
   public static class CommonUtils
   {

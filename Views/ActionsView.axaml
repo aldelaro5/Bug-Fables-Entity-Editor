@@ -12,15 +12,19 @@
   <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="First Action Behaviour"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.Behaviors[0],
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
       <Label HorizontalAlignment="Center" Content="Frequency"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[0]}"/>
     </StackPanel>
     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Second Action Behaviour"/>
-      <ComboBox Width="200"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.Behaviors[1],
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
       <Label HorizontalAlignment="Center" Content="Frequency"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[1]}"/>
     </StackPanel>
   </StackPanel>
 </UserControl>

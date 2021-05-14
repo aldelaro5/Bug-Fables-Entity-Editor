@@ -13,11 +13,11 @@
     <Label VerticalContentAlignment="Center" Content="Emoticon offset"/>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.x}"/>
       <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.y}"/>
       <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.z}"/>
     </StackPanel>
   </StackPanel>
 </UserControl>

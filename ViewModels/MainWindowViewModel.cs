@@ -23,6 +23,36 @@ namespace BugFablesDataEditor.ViewModels
       get { return _npcTypesDescription; }
     }
 
+    private string[] _interactionsDescription = CommonUtils.GetEnumDescriptions<Interaction>();
+    public string[] InteractionsDescription
+    {
+      get { return _interactionsDescription; }
+    }
+
+    private string[] _deathTypeDescription = CommonUtils.GetEnumDescriptions<DeathType>();
+    public string[] DeathTypeDescription
+    {
+      get { return _deathTypeDescription; }
+    }
+
+    private string[] _actionBehaviorsDescription = CommonUtils.GetEnumDescriptions<ActionBehaviors>();
+    public string[] ActionBehaviorsDescription
+    {
+      get { return _actionBehaviorsDescription; }
+    }
+
+    private string[] _animIdDescription = CommonUtils.GetEnumDescriptions<AnimID>();
+    public string[] AnimIdDescription
+    {
+      get { return _animIdDescription; }
+    }
+
+    private string[] _objectTypesDescription = CommonUtils.GetEnumDescriptions<ObjectTypes>();
+    public string[] ObjectTypesDescription
+    {
+      get { return _objectTypesDescription; }
+    }
+
     private string _currentDirectoryPath = "No entity directory, open an existing directory or create a new one";
     public string CurrentDirectoryPath
     {
@@ -172,6 +202,14 @@ namespace BugFablesDataEditor.ViewModels
     {
       EntityDirectory = directory;
       Initialise(directory);
+
+      GeneralView = new GeneralView(this);
+      ActionsView = new ActionsView(this);
+      ArraysView = new ArraysView(this);
+      CollidersView = new CollidersView(this);
+      EmoticonsView = new EmoticonsView(this);
+      LocationView = new LocationView(this);
+      PropertiesView = new PropertiesView(this);
     }
 
     private void Initialise(EntityDirectory directory)
@@ -197,14 +235,6 @@ namespace BugFablesDataEditor.ViewModels
           }
         }
       }, this.WhenAnyValue(x => x.DirectoryInUse));
-
-      GeneralView = new GeneralView(this);
-      ActionsView = new ActionsView(this);
-      ArraysView = new ArraysView(this);
-      CollidersView = new CollidersView(this);
-      EmoticonsView = new EmoticonsView(this);
-      LocationView = new LocationView(this);
-      PropertiesView = new PropertiesView(this);
     }
 
     public async void NewDirectory()

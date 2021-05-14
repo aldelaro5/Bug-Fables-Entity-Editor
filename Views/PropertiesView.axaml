@@ -12,53 +12,53 @@
   <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Speed"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.Speed}"/>
       <Label VerticalContentAlignment="Center" Content="Speed multiplier"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.SpeedMultiplier}"/>
       <Label VerticalContentAlignment="Center" Content="Timer"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.Timer}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Radius"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.Radius}"/>
       <Label VerticalContentAlignment="Center" Content="Wander radius"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.WanderRadius}"/>
       <Label VerticalContentAlignment="Center" Content="Teleport radius"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.TeleportRadius}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Freeze time"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeTime}"/>
     </StackPanel>
     <Label Content="Freeze size"/>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeSize.x}"/>
       <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeSize.y}"/>
       <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeSize.z}"/>
     </StackPanel>
     <Label Content="Freeze offset"/>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeOffset.x}"/>
       <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeOffset.y}"/>
       <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.FreezeOffset.z}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Bob range"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.BobRange}"/>
       <Label VerticalContentAlignment="Center" Content="Bob speed"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.BobSpeed}"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
       <Label VerticalContentAlignment="Center" Content="Initial height"/>
-      <NumericUpDown />
+      <NumericUpDown Value="{Binding CurrentEntity.InitialHeight}"/>
       <Label VerticalContentAlignment="Center" Content="Return to height"/>
-      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.ReturnToHeight}"/>
     </StackPanel>
   </StackPanel>
 </UserControl>
