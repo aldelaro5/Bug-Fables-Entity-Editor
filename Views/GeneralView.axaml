@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:BugFablesDataEditor.ViewModels"
+             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BugFablesDataEditor.Views.GeneralView">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Entity type"/>
+      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.EntityType,
+                               Converter={StaticResource EnumConverter}, 
+                               ConverterParameter={x:Type bf:NPCType}}" Items="{Binding NPCTypesDescription}" />
+      <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Object type"/>
+      <ComboBox Width="200"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Interact type"/>
+      <ComboBox Width="200"/>
+      <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Destroy type"/>
+      <ComboBox Width="200"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Anim ID"/>
+      <ComboBox Width="200"/>
+      <Label VerticalContentAlignment="Center" Content="Flip"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Event ID"/>
+      <NumericUpDown/>
+      <Label VerticalContentAlignment="Center" Content="Inside ID"/>
+      <NumericUpDown/>
+      <Label VerticalContentAlignment="Center" Content="Tattle ID"/>
+      <NumericUpDown/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Regional flag"/>
+      <NumericUpDown/>
+      <Label VerticalContentAlignment="Center" Content="Activation flag"/>
+      <NumericUpDown Value="{Binding CurrentEntity.ActivationFlag}"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

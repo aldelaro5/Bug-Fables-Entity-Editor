@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:BugFablesDataEditor.ViewModels"
+             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BugFablesDataEditor.Views.PropertiesView">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Speed"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Speed multiplier"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Timer"/>
+      <NumericUpDown />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Radius"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Wander radius"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Teleport radius"/>
+      <NumericUpDown />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Freeze time"/>
+      <NumericUpDown />
+    </StackPanel>
+    <Label Content="Freeze size"/>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="X"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Y"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Z"/>
+      <NumericUpDown />
+    </StackPanel>
+    <Label Content="Freeze offset"/>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="X"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Y"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Z"/>
+      <NumericUpDown />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Bob range"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Bob speed"/>
+      <NumericUpDown />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Initial height"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Return to height"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

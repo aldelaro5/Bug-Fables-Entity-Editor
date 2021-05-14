@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:BugFablesDataEditor.ViewModels"
+             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BugFablesDataEditor.Views.CollidersView">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+    <Label VerticalContentAlignment="Center" Content="Capsule collider"/>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Height"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Radius"/>
+      <NumericUpDown />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="Has a box collider"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+      <Label VerticalContentAlignment="Center" Content="Box collider is trigger"/>
+      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center"/>
+    </StackPanel>
+    <Label VerticalContentAlignment="Center" Content="Box collider size"/>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="X"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Y"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Z"/>
+      <NumericUpDown />
+    </StackPanel>
+    <Label VerticalContentAlignment="Center" Content="Box collider center"/>
+    <StackPanel Orientation="Horizontal">
+      <Label VerticalContentAlignment="Center" Content="X"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Y"/>
+      <NumericUpDown />
+      <Label VerticalContentAlignment="Center" Content="Z"/>
+      <NumericUpDown />
+    </StackPanel>
+  </StackPanel>
+</UserControl>
