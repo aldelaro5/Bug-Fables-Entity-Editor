@@ -37,8 +37,53 @@ namespace BugFablesDataEditor.Models
     public string Name
     {
       get { return _name; }
-      set { _name = value; NotifyPropertyChanged(); }
+      set
+      {
+        _name = value;
+        NotifyPropertyChanged();
+        NotifyPropertyChanged(nameof(Holo));
+        NotifyPropertyChanged(nameof(ICE));
+        NotifyPropertyChanged(nameof(TIME));
+        NotifyPropertyChanged(nameof(COT));
+        NotifyPropertyChanged(nameof(Fixed));
+        NotifyPropertyChanged(nameof(FxdCol));
+        NotifyPropertyChanged(nameof(ALW));
+        NotifyPropertyChanged(nameof(PAU));
+        NotifyPropertyChanged(nameof(HIDE));
+        NotifyPropertyChanged(nameof(ROT));
+        NotifyPropertyChanged(nameof(ShwEm));
+        NotifyPropertyChanged(nameof(COG));
+        NotifyPropertyChanged(nameof(NGS));
+        NotifyPropertyChanged(nameof(ITHD));
+        NotifyPropertyChanged(nameof(NEAR));
+        NotifyPropertyChanged(nameof(WTA));
+        NotifyPropertyChanged(nameof(TOG));
+        NotifyPropertyChanged(nameof(NGF));
+        NotifyPropertyChanged(nameof(NDTCT));
+        NotifyPropertyChanged(nameof(DDIST));
+      }
     }
+
+    public bool Holo { get { return Name.Contains("Holo"); } }
+    public bool ICE { get { return Name.Contains("ICE"); } }
+    public bool TIME { get { return Name.Contains("TIME"); } }
+    public bool COT { get { return Name.Contains("COT"); } }
+    public bool Fixed { get { return Name.Contains("Fixed"); } }
+    public bool FxdCol { get { return Name.Contains("FxdCol"); } }
+    public bool ALW { get { return Name.Contains("ALW"); } }
+    public bool PAU { get { return Name.Contains("PAU"); } }
+    public bool HIDE { get { return Name.Contains("HIDE"); } }
+    public bool ROT { get { return Name.Contains("ROT"); } }
+    public bool ShwEm { get { return Name.Contains("ShwEm"); } }
+    public bool COG { get { return Name.Contains("COG"); } }
+    public bool NGS { get { return Name.Contains("NGS"); } }
+    public bool ITHD { get { return Name.Contains("ITHD"); } }
+    public bool NEAR { get { return Name.Contains("NEAR"); } }
+    public bool WTA { get { return Name.Contains("WTA"); } }
+    public bool TOG { get { return Name.Contains("TOG"); } }
+    public bool NGF { get { return Name.Contains("NGF"); } }
+    public bool NDTCT { get { return Name.Contains("NDTCT"); } }
+    public bool DDIST { get { return Name.Contains("DDIST"); } }
 
     private NPCType _entityType = NPCType.UNDEFINED;
     public NPCType EntityType

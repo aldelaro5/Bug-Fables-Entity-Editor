@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:BugFablesDataEditor.Views"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="250"
+        x:Class="BugFablesDataEditor.Views.EditEntityNameView"
+        Title="Edit Entity's name"
+        Icon="/Assets/icon.png"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner">
+  <DockPanel>
+    <views:WindowsTitleBar IsVisible="False" Name="windowsTitleBar"/>
+    <DockPanel>
+      <DockPanel DockPanel.Dock="Top" Margin="30,30,30,5">
+        <Label DockPanel.Dock="Left" VerticalContentAlignment="Center" Content="New name" Margin="0,0,5,0"/>
+        <TextBox Name="txbName" Text="{Binding CurrentEntity.Name}"/>
+      </DockPanel>
+      <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+        <Button Content="OK" Margin="5" Click="OkClick"/>
+        <Button Content="Cancel" Margin="5" Click="CancelClick"/>
+      </DockPanel>
+      <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+        <Label Content="Modifiers"/>
+        <StackPanel Orientation="Horizontal">
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="Holo" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.Holo}" Command="{Binding ToggleModifier}" CommandParameter="Holo"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="ICE" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.ICE}" Command="{Binding ToggleModifier}" CommandParameter="ICE"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="TIME" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.TIME}" Command="{Binding ToggleModifier}" CommandParameter="TIME"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="COT" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.COT}" Command="{Binding ToggleModifier}" CommandParameter="COT"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="Fixed" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.Fixed}" Command="{Binding ToggleModifier}" CommandParameter="Fixed"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="FxdCol" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.FxdCol}" Command="{Binding ToggleModifier}" CommandParameter="FxdCol"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="ALW" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.ALW}" Command="{Binding ToggleModifier}" CommandParameter="ALW"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="PAU" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.PAU}" Command="{Binding ToggleModifier}" CommandParameter="PAU"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="HIDE" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.HIDE}" Command="{Binding ToggleModifier}" CommandParameter="HIDE"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="ROT" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.ROT}" Command="{Binding ToggleModifier}" CommandParameter="ROT"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="ShwEm" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.ShwEm}" Command="{Binding ToggleModifier}" CommandParameter="ShwEm"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="COG" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.COG}" Command="{Binding ToggleModifier}" CommandParameter="COG"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="NGS" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.NGS}" Command="{Binding ToggleModifier}" CommandParameter="NGS"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="ITHD" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.ITHD}" Command="{Binding ToggleModifier}" CommandParameter="ITHD"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="NEAR" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.NEAR}" Command="{Binding ToggleModifier}" CommandParameter="NEAR"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="WTA" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.WTA}" Command="{Binding ToggleModifier}" CommandParameter="WTA"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="TOG" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.TOG}" Command="{Binding ToggleModifier}" CommandParameter="TOG"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="NGF" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.NGF}" Command="{Binding ToggleModifier}" CommandParameter="NGF"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="NDTCT" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.NDTCT}" Command="{Binding ToggleModifier}" CommandParameter="NDTCT"/>
+          <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="DDIST" Width="60" Margin="0,0,3,0"/>
+          <CheckBox IsChecked="{Binding CurrentEntity.DDIST}" Command="{Binding ToggleModifier}" CommandParameter="DDIST"/>
+        </StackPanel>
+      </StackPanel>
+    </DockPanel>
+  </DockPanel>
+</Window>

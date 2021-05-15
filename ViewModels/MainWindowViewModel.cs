@@ -101,6 +101,7 @@ namespace BugFablesDataEditor.ViewModels
           SelectedLineIndex = -1;
           RebuildLineIndexesDescriptions();
         }
+        this.RaisePropertyChanged(nameof(CurrentKey));
         this.RaisePropertyChanged(nameof(CurrentEntity));
       }
     }
@@ -190,6 +191,8 @@ namespace BugFablesDataEditor.ViewModels
     }
 
     public ReactiveCommand<Unit, Unit> CmdSaveDirectory { get; set; }
+    public ReactiveCommand<Unit, Unit> CmdAddEntity { get; set; }
+    public ReactiveCommand<Unit, Unit> CmdEditEntityName { get; set; }
 
     public MainWindowViewModel()
     {
@@ -235,6 +238,35 @@ namespace BugFablesDataEditor.ViewModels
           }
         }
       }, this.WhenAnyValue(x => x.DirectoryInUse));
+
+      CmdAddEntity = ReactiveCommand.Create(() =>
+      {
+        Entity ent = new Entity();
+        ent.Name = "New Entity";
+        EntityDirectory.Entities[CurrentKey].Add(ent);
+        RebuildLineIndexesDescriptions();
+        SelectedLineIndex = EntityDirectory.Entities[CurrentKey].Count - 1;
+      }, this.WhenAnyValue(x => x.DirectoryInUse, x => x.CurrentKey,
+                          (directoryInUse, currentKey) => directoryInUse && currentKey != -1));
+
+      CmdEditEntityName = ReactiveCommand.CreateFromTask(async () =>
+      {
+        EditEntityNameView dlg = new EditEntityNameView(this);
+        string savedName = CurrentEntity.Name;
+        await dlg.ShowDialog(CommonUtils.MainWindow);
+        if (dlg.Confirmed)
+        {
+          int index = SelectedLineIndex;
+          RebuildLineIndexesDescriptions();
+          SelectedLineIndex = index;
+        }
+        else
+        {
+          CurrentEntity.Name = savedName;
+        }
+      }, this.WhenAnyValue(x => x.DirectoryInUse, x => x.CurrentKey, x => x.SelectedLineIndex,
+                          (directoryInUse, currentKey, selectedLineIndex) =>
+                            directoryInUse && currentKey != -1 && selectedLineIndex != -1));
     }
 
     public async void NewDirectory()
@@ -290,6 +322,14 @@ namespace BugFablesDataEditor.ViewModels
                     "An error occured while opening the directory: " + ex.Message, ButtonEnum.Ok, Icon.Error);
         await msg.ShowDialog(CommonUtils.MainWindow);
       }
+    }
+
+    public void ToggleModifier(string modifier)
+    {
+      if (CurrentEntity.Name.Contains(modifier))
+        CurrentEntity.Name = CurrentEntity.Name.Replace(modifier, "");
+      else
+        CurrentEntity.Name = modifier + CurrentEntity.Name;
     }
 
     private void RebuildKeysDescriptions()

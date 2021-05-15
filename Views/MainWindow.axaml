@@ -37,6 +37,10 @@
             <Button Command="{Binding OpenDirectory}" Content="Open directory..." Margin="5"/>
             <Button Command="{Binding CmdSaveDirectory}" Content="Save directory..." Margin="5"/>
           </StackPanel>
+          <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Command="{Binding CmdAddEntity}" Content="Add entity to current map" Margin="5"/>
+            <Button Command="{Binding CmdEditEntityName}" Content="Edit current entity's name &amp; modifiers" Margin="5"/>
+          </StackPanel>
           <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
             <Label VerticalContentAlignment="Center" Content="Current Map"/>
             <ComboBox Width="200" SelectedIndex="{Binding SelectedKeyIndex}" Items="{Binding KeysDescriptions}" />
@@ -46,8 +50,7 @@
             <colorpicker:ColorButton Color="{Binding CurrentEntity.TagColor}"/>
           </StackPanel>
         </StackPanel>
-        <TabControl HorizontalAlignment="Center">
-          <!--TabControl HorizontalAlignment="Center" IsEnabled="{Binding DirectoryInUse}"-->
+        <TabControl HorizontalAlignment="Center" IsEnabled="{Binding DirectoryInUse}">
           <TabItem Header="General" Content="{Binding GeneralView}"/>
           <TabItem Header="Actions" Content="{Binding ActionsView}"/>
           <TabItem Header="Location" Content="{Binding LocationView}"/>
