@@ -13,6 +13,10 @@
 
   <Application.Styles>
     <FluentTheme Mode="Dark"/>
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+    <Style Selector="DataGridColumnHeader TextBlock">
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
     <Style Selector="TabControl WrapPanel">
       <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>

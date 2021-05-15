@@ -10,6 +10,29 @@ namespace BugFablesDataEditor.Models
 {
   public class Entity : INotifyPropertyChanged
   {
+    public class IndexedElement<T> : INotifyPropertyChanged
+    {
+      private int _index;
+      public int Index
+      {
+        get { return _index; }
+        set { _index = value; NotifyPropertyChanged(); }
+      }
+
+      private T _value;
+      public T Value
+      {
+        get { return _value; }
+        set { _value = value; NotifyPropertyChanged(); }
+      }
+
+      public event PropertyChangedEventHandler? PropertyChanged;
+      private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+      {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+      }
+    }
+
     private string _name = "";
     public string Name
     {
@@ -206,8 +229,8 @@ namespace BugFablesDataEditor.Models
       set { _requiresLength = value; NotifyPropertyChanged(); }
     }
 
-    private int[] _requires = new int[10];
-    public int[] Requires
+    private IndexedElement<int>[] _requires = new IndexedElement<int>[10];
+    public IndexedElement<int>[] Requires
     {
       get { return _requires; }
       set { _requires = value; NotifyPropertyChanged(); }
@@ -220,8 +243,8 @@ namespace BugFablesDataEditor.Models
       set { _limitLength = value; NotifyPropertyChanged(); }
     }
 
-    private int[] _limit = new int[10];
-    public int[] Limit
+    private IndexedElement<int>[] _limit = new IndexedElement<int>[10];
+    public IndexedElement<int>[] Limit
     {
       get { return _limit; }
       set { _limit = value; NotifyPropertyChanged(); }
@@ -234,8 +257,8 @@ namespace BugFablesDataEditor.Models
       set { _dataLenght = value; NotifyPropertyChanged(); }
     }
 
-    private int[] _data = new int[10];
-    public int[] Data
+    private IndexedElement<int>[] _data = new IndexedElement<int>[10];
+    public IndexedElement<int>[] Data
     {
       get { return _data; }
       set { _data = value; NotifyPropertyChanged(); }
@@ -248,8 +271,8 @@ namespace BugFablesDataEditor.Models
       set { _vectorDataLength = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3[] _vectorData = new Vector3[10];
-    public Vector3[] VectorData
+    private IndexedElement<Vector3>[] _vectorData = new IndexedElement<Vector3>[10];
+    public IndexedElement<Vector3>[] VectorData
     {
       get { return _vectorData; }
       set { _vectorData = value; NotifyPropertyChanged(); }
@@ -262,8 +285,8 @@ namespace BugFablesDataEditor.Models
       set { _dialoguesLength = value; NotifyPropertyChanged(); }
     }
 
-    private Vector3[] _dialogues = new Vector3[20];
-    public Vector3[] Dialogues
+    private IndexedElement<Vector3>[] _dialogues = new IndexedElement<Vector3>[20];
+    public IndexedElement<Vector3>[] Dialogues
     {
       get { return _dialogues; }
       set { _dialogues = value; NotifyPropertyChanged(); }
@@ -283,8 +306,8 @@ namespace BugFablesDataEditor.Models
       set { _battleIdsLength = value; NotifyPropertyChanged(); }
     }
 
-    private int[] _battleIds = new int[4];
-    public int[] BattleIds
+    private IndexedElement<int>[] _battleIds = new IndexedElement<int>[4];
+    public IndexedElement<int>[] BattleIds
     {
       get { return _battleIds; }
       set { _battleIds = value; NotifyPropertyChanged(); }
@@ -311,8 +334,8 @@ namespace BugFablesDataEditor.Models
       set { _insideId = value; NotifyPropertyChanged(); }
     }
 
-    private Vector2Int[] _emoticonFlag = new Vector2Int[10];
-    public Vector2Int[] EmoticonFlag
+    private IndexedElement<Vector2Int>[] _emoticonFlag = new IndexedElement<Vector2Int>[10];
+    public IndexedElement<Vector2Int>[] EmoticonFlag
     {
       get { return _emoticonFlag; }
       set { _emoticonFlag = value; NotifyPropertyChanged(); }
@@ -369,9 +392,56 @@ namespace BugFablesDataEditor.Models
 
     public Entity()
     {
-      VectorData.Initialize();
-      Dialogues.Initialize();
-      EmoticonFlag.Initialize();
+      for (int i = 0; i < Limit.Length; i++)
+      {
+        Limit[i] = new IndexedElement<int>();
+        Limit[i].Index = i;
+        Limit[i].Value = 0;
+      }
+      for (int i = 0; i < Requires.Length; i++)
+      {
+        Requires[i] = new IndexedElement<int>();
+        Requires[i].Index = i;
+        Requires[i].Value = 0;
+      }
+      for (int i = 0; i < VectorData.Length; i++)
+      {
+        VectorData[i] = new IndexedElement<Vector3>();
+        VectorData[i].Index = i;
+        VectorData[i].Value = new Vector3();
+        VectorData[i].Value.x = 0f;
+        VectorData[i].Value.y = 0f;
+        VectorData[i].Value.z = 0f;
+      }
+      for (int i = 0; i < Dialogues.Length; i++)
+      {
+        Dialogues[i] = new IndexedElement<Vector3>();
+        Dialogues[i].Index = i;
+        Dialogues[i].Value = new Vector3();
+        Dialogues[i].Value.x = 0f;
+        Dialogues[i].Value.y = 0f;
+        Dialogues[i].Value.z = 0f;
+      }
+      for (int i = 0; i < Data.Length; i++)
+      {
+        Data[i] = new IndexedElement<int>();
+        Data[i].Index = i;
+        Data[i].Value = 0;
+      }
+      for (int i = 0; i < BattleIds.Length; i++)
+      {
+        BattleIds[i] = new IndexedElement<int>();
+        BattleIds[i].Index = i;
+        BattleIds[i].Value = 0;
+      }
+      for (int i = 0; i < EmoticonFlag.Length; i++)
+      {
+        EmoticonFlag[i] = new IndexedElement<Vector2Int>();
+        EmoticonFlag[i].Index = i;
+        EmoticonFlag[i].Value = new Vector2Int();
+        EmoticonFlag[i].Value.x = 0;
+        EmoticonFlag[i].Value.y = 0;
+      }
       Behaviors[0] = ActionBehaviors.UNDEFINED;
       Behaviors[1] = ActionBehaviors.UNDEFINED;
     }
@@ -481,22 +551,22 @@ namespace BugFablesDataEditor.Models
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < VectorData.Length; i++)
       {
-        sb.Append(VectorData[i].x);
+        sb.Append(VectorData[i].Value.x);
         sb.Append(CommonUtils.FieldSeparator);
-        sb.Append(VectorData[i].y);
+        sb.Append(VectorData[i].Value.y);
         sb.Append(CommonUtils.FieldSeparator);
-        sb.Append(VectorData[i].z);
+        sb.Append(VectorData[i].Value.z);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(DialoguesLength);
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < Dialogues.Length; i++)
       {
-        sb.Append(Dialogues[i].x);
+        sb.Append(Dialogues[i].Value.x);
         sb.Append(CommonUtils.FieldSeparator);
-        sb.Append(Dialogues[i].y);
+        sb.Append(Dialogues[i].Value.y);
         sb.Append(CommonUtils.FieldSeparator);
-        sb.Append(Dialogues[i].z);
+        sb.Append(Dialogues[i].Value.z);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(EulerAngles.x);
@@ -530,9 +600,9 @@ namespace BugFablesDataEditor.Models
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < EmoticonFlag.Length; i++)
       {
-        sb.Append(EmoticonFlag[i].x);
+        sb.Append(EmoticonFlag[i].Value.x);
         sb.Append(CommonUtils.ElementSeparator);
-        sb.Append(EmoticonFlag[i].y);
+        sb.Append(EmoticonFlag[i].Value.y);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(TattleId);
@@ -594,30 +664,30 @@ namespace BugFablesDataEditor.Models
       EventId = ParseInt(data, 37, nameof(EventId));
       RequiresLength = ParseInt(data, 38, nameof(RequiresLength));
       for (int i = 0; i < Requires.Length; i++)
-        Requires[i] = ParseInt(data, 39 + i, nameof(Requires) + "[" + i + "]");
+        Requires[i].Value = ParseInt(data, 39 + i, nameof(Requires) + "[" + i + "]");
       LimitLength = ParseInt(data, 49, nameof(LimitLength));
       for (int i = 0; i < Limit.Length; i++)
-        Limit[i] = ParseInt(data, 50 + i, nameof(Limit) + "[" + i + "]");
+        Limit[i].Value = ParseInt(data, 50 + i, nameof(Limit) + "[" + i + "]");
       DataLength = ParseInt(data, 60, nameof(DataLength));
       for (int i = 0; i < Limit.Length; i++)
-        Data[i] = ParseInt(data, 61 + i, nameof(Data) + "[" + i + "]");
+        Data[i].Value = ParseInt(data, 61 + i, nameof(Data) + "[" + i + "]");
       VectorDataLength = ParseInt(data, 71, nameof(VectorDataLength));
       for (int i = 0; i < VectorData.Length; i++)
-        VectorData[i] = ParseVector3(data, 72 + i * 3, nameof(VectorData) + "[" + i + "]");
+        VectorData[i].Value = ParseVector3(data, 72 + i * 3, nameof(VectorData) + "[" + i + "]");
       DialoguesLength = ParseInt(data, 102, nameof(DialoguesLength));
       for (int i = 0; i < Dialogues.Length; i++)
-        Dialogues[i] = ParseVector3(data, 103 + i * 3, nameof(Dialogues) + "[" + i + "]");
+        Dialogues[i].Value = ParseVector3(data, 103 + i * 3, nameof(Dialogues) + "[" + i + "]");
       EulerAngles = ParseVector3(data, 163, nameof(EulerAngles));
       BattleIdsLength = ParseInt(data, 166, nameof(BattleIdsLength));
       for (int i = 0; i < BattleIds.Length; i++)
-        BattleIds[i] = ParseInt(data, 167 + i, nameof(BattleIds) + "[" + i + "]");
+        BattleIds[i].Value = ParseInt(data, 167 + i, nameof(BattleIds) + "[" + i + "]");
       TagColor = ParseColor(data, 171, nameof(TagColor));
       EmoticonOffset = ParseVector3(data, 175, nameof(EmoticonOffset));
       InsideId = ParseInt(data, 178, nameof(InsideId));
       for (int i = 0; i < EmoticonFlag.Length; i++)
       {
         string[] vec2Data = data[179 + i].Split(CommonUtils.ElementSeparator);
-        EmoticonFlag[i] = ParseVector2Int(vec2Data, 0, nameof(EmoticonFlag) + "[" + i + "]");
+        EmoticonFlag[i].Value = ParseVector2Int(vec2Data, 0, nameof(EmoticonFlag) + "[" + i + "]");
       }
       TattleId = ParseInt(data, 189, nameof(TattleId));
       RegionalFlag = ParseInt(data, 190, nameof(RegionalFlag));
@@ -673,33 +743,33 @@ namespace BugFablesDataEditor.Models
       EventId = 0;
       RequiresLength = 0;
       for (int i = 0; i < Requires.Length; i++)
-        Requires[i] = 0;
+        Requires[i].Value = 0;
       LimitLength = 0;
       for (int i = 0; i < Limit.Length; i++)
-        Limit[i] = 0;
+        Limit[i].Value = 0;
       DataLength = 0;
       for (int i = 0; i < Limit.Length; i++)
-        Data[i] = 0;
+        Data[i].Value = 0;
       VectorDataLength = 0;
       for (int i = 0; i < VectorData.Length; i++)
       {
-        VectorData[i].x = 0f;
-        VectorData[i].y = 0f;
-        VectorData[i].z = 0f;
+        VectorData[i].Value.x = 0f;
+        VectorData[i].Value.y = 0f;
+        VectorData[i].Value.z = 0f;
       }
       DialoguesLength = 0;
       for (int i = 0; i < Dialogues.Length; i++)
       {
-        Dialogues[i].x = 0f;
-        Dialogues[i].y = 0f;
-        Dialogues[i].z = 0f;
+        Dialogues[i].Value.x = 0f;
+        Dialogues[i].Value.y = 0f;
+        Dialogues[i].Value.z = 0f;
       }
       EulerAngles.x = 0f;
       EulerAngles.y = 0f;
       EulerAngles.z = 0f;
       BattleIdsLength = 0;
       for (int i = 0; i < BattleIds.Length; i++)
-        BattleIds[i] = 0;
+        BattleIds[i].Value = 0;
       TagColor = default(Color);
       EmoticonOffset.x = 0f;
       EmoticonOffset.y = 0f;
@@ -707,8 +777,8 @@ namespace BugFablesDataEditor.Models
       InsideId = 0;
       for (int i = 0; i < EmoticonFlag.Length; i++)
       {
-        EmoticonFlag[i].x = 0;
-        EmoticonFlag[i].y = 0;
+        EmoticonFlag[i].Value.x = 0;
+        EmoticonFlag[i].Value.y = 0;
       }
       TattleId = 0;
       RegionalFlag = 0;

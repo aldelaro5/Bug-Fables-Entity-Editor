@@ -9,15 +9,27 @@
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-    <Label VerticalContentAlignment="Center" Content="Emoticon offset"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.x}"/>
-      <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.y}"/>
-      <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.z}"/>
-    </StackPanel>
-  </StackPanel>
+  <DockPanel HorizontalAlignment="Center">
+    <DockPanel DockPanel.Dock="Top">
+      <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Emoticon offset"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="X"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.x}"/>
+        <Label VerticalContentAlignment="Center" Content="Y"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.y}"/>
+        <Label VerticalContentAlignment="Center" Content="Z"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.z}"/>
+      </StackPanel>
+    </DockPanel>
+    <DockPanel>
+      <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Emoticons flags"/>
+      <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.EmoticonFlag}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <DataGrid.Columns>
+          <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
+          <DataGridTextColumn Header="X" Binding="{Binding Value.x}" Width="150"/>
+          <DataGridTextColumn Header="Y" Binding="{Binding Value.y}" Width="150"/>
+        </DataGrid.Columns>
+      </DataGrid>
+    </DockPanel>
+  </DockPanel>
 </UserControl>

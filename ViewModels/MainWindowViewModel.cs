@@ -96,12 +96,12 @@ namespace BugFablesDataEditor.ViewModels
       {
         _selectedKeyIndex = value;
         this.RaisePropertyChanged();
-        this.RaisePropertyChanged(nameof(CurrentEntity));
         if (CurrentKey != -1)
         {
           SelectedLineIndex = -1;
           RebuildLineIndexesDescriptions();
         }
+        this.RaisePropertyChanged(nameof(CurrentEntity));
       }
     }
 
