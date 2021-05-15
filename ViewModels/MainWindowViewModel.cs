@@ -1,7 +1,7 @@
 using Avalonia.Controls;
-using BugFablesDataEditor.BugFablesEnums;
-using BugFablesDataEditor.Models;
-using BugFablesDataEditor.Views;
+using BugFablesEntityEditor.BugFablesEnums;
+using BugFablesEntityEditor.Models;
+using BugFablesEntityEditor.Views;
 using Common.MessageBox.Enums;
 using ReactiveUI;
 using System;
@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 
-namespace BugFablesDataEditor.ViewModels
+namespace BugFablesEntityEditor.ViewModels
 {
   public class MainWindowViewModel : ViewModelBase
   {
@@ -148,11 +148,11 @@ namespace BugFablesDataEditor.ViewModels
       set { _generalView = value; this.RaisePropertyChanged(); }
     }
 
-    private ActionsView _actionsView;
-    public ActionsView ActionsView
+    private ActionsLocationView _actionsLocationView;
+    public ActionsLocationView ActionsLocationView
     {
-      get { return _actionsView; }
-      set { _actionsView = value; this.RaisePropertyChanged(); }
+      get { return _actionsLocationView; }
+      set { _actionsLocationView = value; this.RaisePropertyChanged(); }
     }
 
     private ArraysView _arraysView;
@@ -174,13 +174,6 @@ namespace BugFablesDataEditor.ViewModels
     {
       get { return _emoticaonsView; }
       set { _emoticaonsView = value; this.RaisePropertyChanged(); }
-    }
-
-    private LocationView _locationView;
-    public LocationView LocationView
-    {
-      get { return _locationView; }
-      set { _locationView = value; this.RaisePropertyChanged(); }
     }
 
     private PropertiesView _propertiesView;
@@ -207,11 +200,10 @@ namespace BugFablesDataEditor.ViewModels
       Initialise(directory);
 
       GeneralView = new GeneralView(this);
-      ActionsView = new ActionsView(this);
+      ActionsLocationView = new ActionsLocationView(this);
       ArraysView = new ArraysView(this);
       CollidersView = new CollidersView(this);
       EmoticonsView = new EmoticonsView(this);
-      LocationView = new LocationView(this);
       PropertiesView = new PropertiesView(this);
     }
 

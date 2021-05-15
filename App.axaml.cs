@@ -1,11 +1,11 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using BugFablesDataEditor.Models;
-using BugFablesDataEditor.ViewModels;
-using BugFablesDataEditor.Views;
+using BugFablesEntityEditor.Models;
+using BugFablesEntityEditor.ViewModels;
+using BugFablesEntityEditor.Views;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   public class App : Application
   {

@@ -1,12 +1,12 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using BugFablesDataEditor.ViewModels;
+using BugFablesEntityEditor.ViewModels;
 using Common.MessageBox;
 using Common.MessageBox.Enums;
 using System.Runtime.InteropServices;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public class MessageBoxView : Window
   {

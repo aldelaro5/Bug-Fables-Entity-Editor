@@ -1,55 +1,59 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:BugFablesDataEditor.ViewModels"
-             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:vm="using:BugFablesEntityEditor.ViewModels"
+             xmlns:bf="using:BugFablesEntityEditor.BugFablesEnums"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="BugFablesDataEditor.Views.GeneralView">
+             x:Class="BugFablesEntityEditor.Views.GeneralView">
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+  <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5">
+    <Label Content="Basic Informations" FontWeight="Bold"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Entity type"/>
-      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.EntityType,
+      <Label VerticalContentAlignment="Center" Content="Entity type" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+      <ComboBox Width="225" SelectedIndex="{Binding CurrentEntity.EntityType,
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:NPCType}}" Items="{Binding NPCTypesDescription}" />
-      <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Object type"/>
-      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.ObjectType,
+      <Label VerticalContentAlignment="Center" Content="Object type" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+      <ComboBox Width="225" SelectedIndex="{Binding CurrentEntity.ObjectType,
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:ObjectTypes}}" Items="{Binding ObjectTypesDescription}"/>
     </StackPanel>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Interact type"/>
-      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.InteractType,
+    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+      <Label VerticalContentAlignment="Center" Content="Interact type" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+      <ComboBox Width="225" SelectedIndex="{Binding CurrentEntity.InteractType,
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:Interaction}}" Items="{Binding InteractionsDescription}"/>
-      <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Destroy type"/>
-      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.DestroyType,
+      <Label VerticalContentAlignment="Center" Content="Destroy type" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+      <ComboBox Width="225" SelectedIndex="{Binding CurrentEntity.DestroyType,
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:DeathType}}" Items="{Binding DeathTypeDescription}"/>
     </StackPanel>
+    <Label Content="Animation" FontWeight="Bold" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Anim ID"/>
-      <ComboBox Width="200" SelectedIndex="{Binding CurrentEntity.AnimId,
+      <Label VerticalContentAlignment="Center" Content="Anim ID" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+      <ComboBox Width="225" SelectedIndex="{Binding CurrentEntity.AnimId,
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:AnimID}}" Items="{Binding AnimIdDescription}"/>
-      <Label VerticalContentAlignment="Center" Content="Flip"/>
+      <Label VerticalContentAlignment="Center" Content="Flip" Margin="5,0,0,0"/>
       <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.Flip}"/>
     </StackPanel>
+    <Label Content="IDs" FontWeight="Bold" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Event ID"/>
+      <Label VerticalContentAlignment="Center" Content="Event ID" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
       <NumericUpDown Value="{Binding CurrentEntity.EventId}"/>
-      <Label VerticalContentAlignment="Center" Content="Inside ID"/>
+      <Label VerticalContentAlignment="Center" Content="Inside ID" Margin="5,0,5,0" Width="100" HorizontalContentAlignment="Right"/>
       <NumericUpDown Value="{Binding CurrentEntity.InsideId}"/>
-      <Label VerticalContentAlignment="Center" Content="Tattle ID"/>
+      <Label VerticalContentAlignment="Center" Content="Tattle ID" Margin="5,0,5,0"/>
       <NumericUpDown Value="{Binding CurrentEntity.TattleId}"/>
     </StackPanel>
+    <Label Content="Flags" FontWeight="Bold" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Regional flag"/>
+      <Label VerticalContentAlignment="Center" Content="Regional flag" Width="100" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
       <NumericUpDown Value="{Binding CurrentEntity.RegionalFlag}"/>
-      <Label VerticalContentAlignment="Center" Content="Activation flag"/>
+      <Label VerticalContentAlignment="Center" Content="Activation flag" Margin="5,0,5,0" Width="100" HorizontalAlignment="Right"/>
       <NumericUpDown Value="{Binding CurrentEntity.ActivationFlag}"/>
     </StackPanel>
   </StackPanel>

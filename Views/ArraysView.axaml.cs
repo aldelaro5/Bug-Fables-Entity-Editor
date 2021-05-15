@@ -1,9 +1,9 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using BugFablesDataEditor.ViewModels;
+using BugFablesEntityEditor.ViewModels;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public partial class ArraysView : UserControl
   {

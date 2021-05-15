@@ -5,7 +5,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
-using BugFablesDataEditor.Views;
+using BugFablesEntityEditor.Views;
 using Common.MessageBox;
 using Common.MessageBox.Enums;
 using JetBrains.Annotations;
@@ -14,7 +14,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace BugFablesDataEditor.ViewModels
+namespace BugFablesEntityEditor.ViewModels
 {
   public class MessageBoxViewModel : ViewModelBase, INotifyPropertyChanged
   {

@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public class MainWindow : Window
   {
@@ -28,7 +28,7 @@ namespace BugFablesDataEditor.Views
         var windowsTitleBar = this.FindControl<WindowsTitleBar>("windowsTitleBar");
         windowsTitleBar.IsVisible = true;
         TextBlock systemChromeTitle = windowsTitleBar.FindControl<TextBlock>("SystemChromeTitle");
-        systemChromeTitle.Text = "Bug Fables Save Editor";
+        systemChromeTitle.Text = "Bug Fables Entity Editor";
       }
 
       Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));

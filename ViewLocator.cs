@@ -1,9 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using BugFablesDataEditor.ViewModels;
+using BugFablesEntityEditor.ViewModels;
 using System;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   public class ViewLocator : IDataTemplate
   {

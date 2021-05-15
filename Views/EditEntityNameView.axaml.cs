@@ -2,10 +2,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using BugFablesDataEditor.ViewModels;
+using BugFablesEntityEditor.ViewModels;
 using System.Runtime.InteropServices;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public partial class EditEntityNameView : Window
   {
@@ -43,7 +43,7 @@ namespace BugFablesDataEditor.Views
         var windowsTitleBar = this.FindControl<WindowsTitleBar>("windowsTitleBar");
         windowsTitleBar.IsVisible = true;
         TextBlock systemChromeTitle = windowsTitleBar.FindControl<TextBlock>("SystemChromeTitle");
-        systemChromeTitle.Text = "Bug Fables Save Editor";
+        systemChromeTitle.Text = "Edit entity's name";
       }
     }
 

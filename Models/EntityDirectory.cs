@@ -1,4 +1,4 @@
-﻿using BugFablesDataEditor.BugFablesEnums;
+﻿using BugFablesEntityEditor.BugFablesEnums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugFablesDataEditor.Models
+namespace BugFablesEntityEditor.Models
 {
   public class EntityDirectory
   {

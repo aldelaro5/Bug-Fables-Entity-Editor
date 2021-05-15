@@ -1,28 +1,28 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:BugFablesDataEditor.ViewModels"
-             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:vm="using:BugFablesEntityEditor.ViewModels"
+             xmlns:bf="using:BugFablesEntityEditor.BugFablesEnums"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="BugFablesDataEditor.Views.EmoticonsView">
+             mc:Ignorable="d" d:DesignWidth="850" d:DesignHeight="450"
+             x:Class="BugFablesEntityEditor.Views.EmoticonsView">
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <DockPanel HorizontalAlignment="Center">
+  <DockPanel Margin="5" HorizontalAlignment="Center">
     <DockPanel DockPanel.Dock="Top">
       <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Emoticon offset"/>
       <StackPanel Orientation="Horizontal">
-        <Label VerticalContentAlignment="Center" Content="X"/>
-        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.x}"/>
-        <Label VerticalContentAlignment="Center" Content="Y"/>
-        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.y}"/>
-        <Label VerticalContentAlignment="Center" Content="Z"/>
-        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.z}"/>
+        <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.x}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.y}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EmoticonOffset.z}" Width="250"/>
       </StackPanel>
     </DockPanel>
     <DockPanel>
-      <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Emoticons flags"/>
+      <Label DockPanel.Dock="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Emoticons flags" Margin="0,5,0,5" FontWeight="Bold"/>
       <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.EmoticonFlag}" ScrollViewer.VerticalScrollBarVisibility="Visible">
         <DataGrid.Columns>
           <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>

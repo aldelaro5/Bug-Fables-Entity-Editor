@@ -2,10 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="using:BugFablesDataEditor.Views"
+        xmlns:views="using:BugFablesEntityEditor.Views"
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="250"
-        x:Class="BugFablesDataEditor.Views.EditEntityNameView"
-        Title="Edit Entity's name"
+        x:Class="BugFablesEntityEditor.Views.EditEntityNameView"
+        Title="Edit entity's name"
         Icon="/Assets/icon.png"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner">
@@ -21,7 +21,7 @@
         <Button Content="Cancel" Margin="5" Click="CancelClick"/>
       </DockPanel>
       <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
-        <Label Content="Modifiers"/>
+        <Label Content="Modifiers (applied when the name contains the modifier name)" FontWeight="Bold"/>
         <StackPanel Orientation="Horizontal">
           <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="Holo" Width="60" Margin="0,0,3,0"/>
           <CheckBox IsChecked="{Binding CurrentEntity.Holo}" Command="{Binding ToggleModifier}" CommandParameter="Holo"/>

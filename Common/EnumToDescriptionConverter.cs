@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   public class EnumToDescriptionConverter : IValueConverter
   {

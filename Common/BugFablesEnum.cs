@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace BugFablesDataEditor.BugFablesEnums
+namespace BugFablesEntityEditor.BugFablesEnums
 {
   public enum NPCType
   {

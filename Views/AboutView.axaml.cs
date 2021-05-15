@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public class AboutView : Window
   {
@@ -31,6 +31,8 @@ namespace BugFablesDataEditor.Views
 
         var windowsTitleBar = this.FindControl<WindowsTitleBar>("windowsTitleBar");
         windowsTitleBar.IsVisible = true;
+        TextBlock systemChromeTitle = windowsTitleBar.FindControl<TextBlock>("SystemChromeTitle");
+        systemChromeTitle.Text = "About Bug Fables Entity Editor";
       }
     }
 

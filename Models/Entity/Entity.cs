@@ -1,12 +1,12 @@
 ﻿using Avalonia.Media;
-using BugFablesDataEditor.BugFablesEnums;
+using BugFablesEntityEditor.BugFablesEnums;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace BugFablesDataEditor.Models
+namespace BugFablesEntityEditor.Models
 {
   public class Entity : INotifyPropertyChanged
   {

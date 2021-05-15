@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace BugFablesDataEditor.ViewModels
+namespace BugFablesEntityEditor.ViewModels
 {
   public class ViewModelBase : ReactiveObject
   {

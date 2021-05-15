@@ -1,45 +1,46 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:BugFablesDataEditor.ViewModels"
-             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:vm="using:BugFablesEntityEditor.ViewModels"
+             xmlns:bf="using:BugFablesEntityEditor.BugFablesEnums"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="BugFablesDataEditor.Views.CollidersView">
+             mc:Ignorable="d" d:DesignWidth="850" d:DesignHeight="450"
+             x:Class="BugFablesEntityEditor.Views.CollidersView">
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-    <Label VerticalContentAlignment="Center" Content="Capsule collider"/>
+  <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Vertical">
+    <Label VerticalContentAlignment="Center" Content="Capsule collider" FontWeight="Bold" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Height"/>
-      <NumericUpDown Value="{Binding CurrentEntity.CcolHeight}"/>
-      <Label VerticalContentAlignment="Center" Content="Radius"/>
-      <NumericUpDown Value="{Binding CurrentEntity.CcolRadius}"/>
+      <Label VerticalContentAlignment="Center" Content="Height" Margin="0,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.CcolHeight}" Width="250"/>
+      <Label VerticalContentAlignment="Center" Content="Radius" Margin="5,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.CcolRadius}" Width="250"/>
     </StackPanel>
+    <Label VerticalContentAlignment="Center" Content="Box collider" FontWeight="Bold" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Has a box collider"/>
+      <Label VerticalContentAlignment="Center" Content="Has one?"/>
       <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.HasBoxCol}"/>
-      <Label VerticalContentAlignment="Center" Content="Box collider is trigger"/>
+      <Label VerticalContentAlignment="Center" Content="Is trigger"/>
       <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.BoxColIsTrigger}"/>
     </StackPanel>
-    <Label VerticalContentAlignment="Center" Content="Box collider size"/>
+    <Label VerticalContentAlignment="Center" Content="Size" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.x}"/>
-      <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.y}"/>
-      <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.z}"/>
+      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.x}" Width="250"/>
+      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.y}" Width="250"/>
+      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.z}" Width="250"/>
     </StackPanel>
-    <Label VerticalContentAlignment="Center" Content="Box collider center"/>
+    <Label VerticalContentAlignment="Center" Content="Center" Margin="0,5,0,0"/>
     <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.x}"/>
-      <Label VerticalContentAlignment="Center" Content="Y"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.y}"/>
-      <Label VerticalContentAlignment="Center" Content="Z"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.z}"/>
+      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.x}" Width="250"/>
+      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.y}" Width="250"/>
+      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.z}" Width="250"/>
     </StackPanel>
   </StackPanel>
 </UserControl>

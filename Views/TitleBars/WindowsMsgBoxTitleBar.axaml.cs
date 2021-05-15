@@ -2,7 +2,7 @@
 using Avalonia.Markup.Xaml;
 using System.Runtime.InteropServices;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
   public class WindowsMsgBoxTitleBar : UserControl
   {

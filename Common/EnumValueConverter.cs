@@ -1,7 +1,7 @@
 ﻿using Avalonia.Data.Converters;
 using System;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   public class EnumValueConverter : IValueConverter
   {

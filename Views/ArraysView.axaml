@@ -1,19 +1,19 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:BugFablesDataEditor.ViewModels"
-             xmlns:bf="using:BugFablesDataEditor.BugFablesEnums"
+             xmlns:vm="using:BugFablesEntityEditor.ViewModels"
+             xmlns:bf="using:BugFablesEntityEditor.BugFablesEnums"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="BugFablesDataEditor.Views.ArraysView">
+             x:Class="BugFablesEntityEditor.Views.ArraysView">
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <TabControl HorizontalContentAlignment="Center">
+  <TabControl Margin="5" HorizontalContentAlignment="Center">
     <TabItem Header="Requires &amp; Limits">
       <DockPanel>
         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Requires"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Requires" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.Requires}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
@@ -22,7 +22,7 @@
           </DataGrid>
         </DockPanel>
         <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Limits"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Limits" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.Limit}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
@@ -35,7 +35,7 @@
     <TabItem Header="Data &amp; Vector Data">
       <DockPanel>
         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Data"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Data" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.Data}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
@@ -44,7 +44,7 @@
           </DataGrid>
         </DockPanel>
         <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Vector Data"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Vector Data" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.VectorData}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
@@ -59,7 +59,7 @@
     <TabItem Header="Battle IDs &amp; Dialogues">
       <DockPanel>
         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Battle IDs"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Battle IDs" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.BattleIds}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>
@@ -68,7 +68,7 @@
           </DataGrid>
         </DockPanel>
         <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Center">
-          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Dialogues"/>
+          <Label DockPanel.Dock="Top" VerticalContentAlignment="Center" Content="Dialogues" FontWeight="Bold" Margin="0,5,0,5" HorizontalContentAlignment="Center"/>
           <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" Items="{Binding CurrentEntity.Dialogues}" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
               <DataGridTextColumn IsReadOnly="True" Header="Index" Binding="{Binding Index}" Width="80"/>

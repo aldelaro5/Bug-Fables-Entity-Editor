@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.ReactiveUI;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   class Program
   {

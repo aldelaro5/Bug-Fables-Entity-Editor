@@ -1,14 +1,14 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using BugFablesDataEditor.Views;
+using BugFablesEntityEditor.Views;
 using Common.MessageBox.Enums;
 using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace BugFablesDataEditor
+namespace BugFablesEntityEditor
 {
   public enum ReorderDirection
   {

@@ -1,18 +1,18 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using BugFablesDataEditor.ViewModels;
+using BugFablesEntityEditor.ViewModels;
 
-namespace BugFablesDataEditor.Views
+namespace BugFablesEntityEditor.Views
 {
-  public partial class LocationView : UserControl
+  public partial class ActionsLocationView : UserControl
   {
-    public LocationView()
+    public ActionsLocationView()
     {
       InitializeComponent();
     }
 
-    public LocationView(MainWindowViewModel vm)
+    public ActionsLocationView(MainWindowViewModel vm)
     {
       InitializeComponent();
       DataContext = vm;
