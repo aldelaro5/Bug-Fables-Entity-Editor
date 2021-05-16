@@ -1,12 +1,32 @@
 THIS REPOSITORY IS CURRENTLY IN A WORK IN PROGRESS STATE, THIS IS NOT READY FOR GENERAL USE YET.
 
 # Bug-Fables-Entity-Editor
-An entity editor for the game [Bug Fables: The Everlasting Sapling](https://store.steampowered.com/app/1082710/Bug_Fables_The_Everlasting_Sapling/) made in .NET 5. 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/aldelaro5/Bug-Fables-Entity-Editor/master/Assets/icon.png" />
+  <br />
+  Icon by	<a href="https://github.com/CerisWhite">Ceris</a>
+</p>
+
+An entity editor for the game [Bug Fables: The Everlasting Sapling](https://store.steampowered.com/app/1082710/Bug_Fables_The_Everlasting_Sapling/) made in .NET 5. It supports the consultation and modification of all fields of every entities in the game.
 
 This program is supported on Windows and Linux. It uses the [Avalonia UI](http://avaloniaui.net/) framework which offers a rich UI and many features to make developing very comfortable for WPF and .NET developers.
 
+## Features
+- Supports modification of all the entities fields
+- Allows to quickly apply or remove any name modifiers of an entity
+- Allows to save all modifications to a directory of the entities data
+- No need to consult very complex looking text files with lots of closing curly braces
+
 ## System Requirements
 The only requirement is to have the .NET runtime installed. For Windows, you can install the latest version of .NET by following [this link](https://dotnet.microsoft.com/download) (note, you ideally want to install .NET, not .NET Core or .NET Framework). For Linux, refer to your distribution's documentation for proper installation of the runtime.
+
+## Installation
+Simply download the latest zip from [the release page](https://github.com/aldelaro5/Bug-Fables-Entity-Editor/releases) that corresponds to your OS. To launch it, launch the executable inside the zip. This is a portable software, its directory can be moved and placed wherever you want.
+
+## General Usage
+When launched, the program presents multiple tabs corresponding to each section of the entity data. 
+
+You must either open an existing entity data directory. Once done, you may select a map and its entity to consult and edit its information. You may also add a new entity to the current map. When editing an entity's name, you are able to quickly apply or remove any name modifiers.
 
 ## How to Build
 This section is intended ***only for developers***. You do not need to do this if you only want to use the program. Refer to the ***Installation*** section for this purpose.
