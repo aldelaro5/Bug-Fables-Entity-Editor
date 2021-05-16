@@ -36,7 +36,7 @@
           </Label>
         </StackPanel>
         <Label HorizontalContentAlignment="Center" Content="An Entity editor for the game Bug Fables: The Everlasting Sapling."/>
-        <Label HorizontalContentAlignment="Center" Content="Program icon is from in-game assets."/>
+        <Label HorizontalContentAlignment="Center" Content="Program icon is from in-game assets (modified by Ceris)."/>
         <Label HorizontalContentAlignment="Center" Content="This project is not affiliated with Moonsprout Games."/>
       </StackPanel>
     </DockPanel>
