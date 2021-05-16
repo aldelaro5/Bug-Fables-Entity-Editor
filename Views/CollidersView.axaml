@@ -9,38 +9,40 @@
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Vertical">
-    <Label VerticalContentAlignment="Center" Content="Capsule collider" FontWeight="Bold" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Height" Margin="0,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.CcolHeight}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Radius" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.CcolRadius}" Width="250"/>
+  <ScrollViewer VerticalScrollBarVisibility="Visible">
+    <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Vertical">
+      <Label VerticalContentAlignment="Center" Content="Capsule collider" FontWeight="Bold" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="Height" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.CcolHeight}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Radius" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.CcolRadius}" Width="250"/>
+      </StackPanel>
+      <Label VerticalContentAlignment="Center" Content="Box collider" FontWeight="Bold" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="Has one?"/>
+        <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.HasBoxCol}"/>
+        <Label VerticalContentAlignment="Center" Content="Is trigger"/>
+        <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.BoxColIsTrigger}"/>
+      </StackPanel>
+      <Label VerticalContentAlignment="Center" Content="Size" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.x}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.y}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.z}" Width="250"/>
+      </StackPanel>
+      <Label VerticalContentAlignment="Center" Content="Center" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.x}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.y}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.z}" Width="250"/>
+      </StackPanel>
     </StackPanel>
-    <Label VerticalContentAlignment="Center" Content="Box collider" FontWeight="Bold" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="Has one?"/>
-      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.HasBoxCol}"/>
-      <Label VerticalContentAlignment="Center" Content="Is trigger"/>
-      <CheckBox Margin="5,0,0,0" VerticalContentAlignment="Center" IsChecked="{Binding CurrentEntity.BoxColIsTrigger}"/>
-    </StackPanel>
-    <Label VerticalContentAlignment="Center" Content="Size" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.x}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.y}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColSize.z}" Width="250"/>
-    </StackPanel>
-    <Label VerticalContentAlignment="Center" Content="Center" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.x}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.y}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.BoxColCenter.z}" Width="250"/>
-    </StackPanel>
-  </StackPanel>
+  </ScrollViewer>
 </UserControl>

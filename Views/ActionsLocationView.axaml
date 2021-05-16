@@ -9,40 +9,42 @@
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5">
-    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="First Action Behaviour" Width="200" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
-      <ComboBox Width="250" SelectedIndex="{Binding CurrentEntity.Behaviors[0],
+  <ScrollViewer VerticalScrollBarVisibility="Visible">
+    <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="5">
+      <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="First Action Behaviour" Width="200" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+        <ComboBox Width="250" SelectedIndex="{Binding CurrentEntity.Behaviors[0],
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
-      <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[0]}" Width="175"/>
-    </StackPanel>
-    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,5">
-      <Label VerticalContentAlignment="Center" Content="Second Action Behaviour" Width="200" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
-      <ComboBox Width="250" SelectedIndex="{Binding CurrentEntity.Behaviors[1],
+        <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[0]}" Width="175"/>
+      </StackPanel>
+      <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,5">
+        <Label VerticalContentAlignment="Center" Content="Second Action Behaviour" Width="200" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
+        <ComboBox Width="250" SelectedIndex="{Binding CurrentEntity.Behaviors[1],
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
-      <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[1]}" Width="175"/>
+        <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[1]}" Width="175"/>
+      </StackPanel>
+      <Label Content="Starting position" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.StartPos.x}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.StartPos.y}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.StartPos.z}" Width="250"/>
+      </StackPanel>
+      <Label Content="Starting angles" Margin="0,5,0,0"/>
+      <StackPanel Orientation="Horizontal">
+        <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.x}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.y}" Width="250"/>
+        <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
+        <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.z}" Width="250"/>
+      </StackPanel>
     </StackPanel>
-    <Label Content="Starting position" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.StartPos.x}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.StartPos.y}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.StartPos.z}" Width="250"/>
-    </StackPanel>
-    <Label Content="Starting angles" Margin="0,5,0,0"/>
-    <StackPanel Orientation="Horizontal">
-      <Label VerticalContentAlignment="Center" Content="X" Margin="0,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.x}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Y" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.y}" Width="250"/>
-      <Label VerticalContentAlignment="Center" Content="Z" Margin="5,0,5,0"/>
-      <NumericUpDown Value="{Binding CurrentEntity.EulerAngles.z}" Width="250"/>
-    </StackPanel>
-  </StackPanel>
+  </ScrollViewer>
 </UserControl>
