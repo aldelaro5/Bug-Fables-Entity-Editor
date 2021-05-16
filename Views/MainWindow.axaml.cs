@@ -17,8 +17,6 @@ namespace BugFablesEntityEditor.Views
       this.AttachDevTools();
 #endif
 
-      SettingsManager.Load();
-
       if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
       {
         ExtendClientAreaToDecorationsHint = true;

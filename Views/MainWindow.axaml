@@ -9,7 +9,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="BugFablesEntityEditor.Views.MainWindow"
         Title="Bug Fables Data Editor"
-        Icon="/Assets/icon.png"
+        Icon="/Assets/icon.ico"
         WindowStartupLocation="CenterScreen">
   <Design.DataContext>
     <vm:MainWindowViewModel/>

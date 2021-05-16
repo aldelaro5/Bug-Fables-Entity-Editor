@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="250"
         x:Class="BugFablesEntityEditor.Views.EditEntityNameView"
         Title="Edit entity's name"
-        Icon="/Assets/icon.png"
+        Icon="/Assets/icon.ico"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner">
   <DockPanel>

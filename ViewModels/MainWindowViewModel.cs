@@ -301,6 +301,7 @@ namespace BugFablesEntityEditor.ViewModels
         DirectoryInUse = true;
         directorySaved = true;
         RebuildKeysDescriptions();
+        LineIndexesDescriptions.Clear();
       }
       catch (Exception ex)
       {

@@ -9,11 +9,11 @@
         Height="350"
         WindowStartupLocation="CenterOwner"
         Title="About Bug Fables Entity Editor"
-        Icon="/Assets/icon.png">
+        Icon="/Assets/icon.ico">
   <DockPanel>
     <views:WindowsTitleBar IsVisible="False" Name="windowsTitleBar" />
     <DockPanel>
-      <Image DockPanel.Dock="Top" Source="/Assets/icon.png"
+      <Image DockPanel.Dock="Top" Source="/Assets/icon.ico"
                                   Height="128"
                                   Width="128"
                                   VerticalAlignment="Center"/>

@@ -14,7 +14,7 @@
         <StackPanel Orientation="Horizontal"
                     DockPanel.Dock="Left"
                     Spacing="0">
-          <Image Source="/Assets/icon.png"
+          <Image Source="/Assets/icon.ico"
                  Height="22"
                  Width="22"
                  VerticalAlignment="Center"
