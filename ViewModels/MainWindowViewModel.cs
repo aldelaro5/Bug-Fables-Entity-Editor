@@ -261,27 +261,9 @@ namespace BugFablesEntityEditor.ViewModels
                             directoryInUse && currentKey != -1 && selectedLineIndex != -1));
     }
 
-    public async void NewDirectory()
-    {
-      if (DirectoryInUse && !directorySaved)
-      {
-        var msg = CommonUtils.GetMessageBox("Directory in use", "An unsaved directory is currently in use, " +
-                  "creating a new directory will loose all unsaved changes,\nare you sure you want to proceed?",
-                  ButtonEnum.YesNo, Icon.Question);
-        await msg.ShowDialog(CommonUtils.MainWindow);
-        if (msg.ButtonResult == ButtonResult.No)
-          return;
-      }
-
-      EntityDirectory.ResetToDefault();
-      CurrentDirectoryPath = "New directory being created, save it to store it";
-      DirectoryInUse = true;
-      directorySaved = false;
-      RebuildKeysDescriptions();
-    }
-
     public async void OpenDirectory()
     {
+      throw new Exception("this is a test");
       if (DirectoryInUse && !directorySaved)
       {
         var msg = CommonUtils.GetMessageBox("Directory in use", "An unsaved directory is currently in use, " +
