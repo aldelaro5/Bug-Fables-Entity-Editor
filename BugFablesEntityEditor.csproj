@@ -4,10 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <StartupObject>BugFablesEntityEditor.Program</StartupObject>
-    <Version>0.1.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Aldelaro5</Authors>
-    <Product>Bug Fables Data Editor</Product>
-    <Description>A data editor supporting a variety of format for the game Bug Fables: The Everlasting Sapling </Description>
+    <Product>Bug Fables Entity Editor</Product>
+    <Description>An entity editor for the game Bug Fables: The Everlasting Sapling</Description>
   </PropertyGroup>
   <PropertyGroup>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
@@ -26,10 +26,5 @@
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.4" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.4" />
     <PackageReference Include="AvaloniaColorPicker" Version="1.0.5" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\ActionsLocationView.axaml.cs">
-      <DependentUpon>ActionsLocationView.axaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

@@ -143,8 +143,8 @@ namespace BugFablesEntityEditor.ViewModels
       }
     }
 
-    public bool EntitySelected 
-    { 
+    public bool EntitySelected
+    {
       get
       {
         return DirectoryInUse && CurrentKey != -1 && SelectedLineIndex != -1;
