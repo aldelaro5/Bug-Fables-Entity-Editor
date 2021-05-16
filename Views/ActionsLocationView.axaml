@@ -17,7 +17,7 @@
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
         <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
-        <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[0]}" Width="175"/>
+        <NumericUpDown Value="{Binding CurrentEntity.FirstActionFrequency}" Width="175"/>
       </StackPanel>
       <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,5">
         <Label VerticalContentAlignment="Center" Content="Second Action Behaviour" Width="200" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
@@ -25,7 +25,7 @@
                                Converter={StaticResource EnumConverter}, 
                                ConverterParameter={x:Type bf:ActionBehaviors}}" Items="{Binding ActionBehaviorsDescription}"/>
         <Label HorizontalAlignment="Center" Content="Frequency" VerticalContentAlignment="Center" Margin="5,0,5,0"/>
-        <NumericUpDown Value="{Binding CurrentEntity.ActionFrequency[1]}" Width="175"/>
+        <NumericUpDown Value="{Binding CurrentEntity.SecondActionFrequency}" Width="175"/>
       </StackPanel>
       <Label Content="Starting position" Margin="0,5,0,0"/>
       <StackPanel Orientation="Horizontal">

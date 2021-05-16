@@ -176,11 +176,18 @@ namespace BugFablesEntityEditor.Models
       set { _speed = value; NotifyPropertyChanged(); }
     }
 
-    private float[] _actionFrequency = new float[2];
-    public float[] ActionFrequency
+    private float _firstActionFrequency;
+    public float FirstActionFrequency
     {
-      get { return _actionFrequency; }
-      set { _actionFrequency = value; NotifyPropertyChanged(); }
+      get { return _firstActionFrequency; }
+      set { _firstActionFrequency = value; NotifyPropertyChanged(); }
+    }
+
+    private float _secondActionFrequency;
+    public float SecondActionFrequency
+    {
+      get { return _secondActionFrequency; }
+      set { _secondActionFrequency = value; NotifyPropertyChanged(); }
     }
 
     private float _speedMultiplier;
@@ -527,9 +534,9 @@ namespace BugFablesEntityEditor.Models
       sb.Append(CommonUtils.FieldSeparator);
       sb.Append(Speed);
       sb.Append(CommonUtils.FieldSeparator);
-      sb.Append(ActionFrequency[0]);
+      sb.Append(FirstActionFrequency);
       sb.Append(CommonUtils.FieldSeparator);
-      sb.Append(ActionFrequency[1]);
+      sb.Append(SecondActionFrequency);
       sb.Append(CommonUtils.FieldSeparator);
       sb.Append(SpeedMultiplier);
       sb.Append(CommonUtils.FieldSeparator);
@@ -693,8 +700,8 @@ namespace BugFablesEntityEditor.Models
       Radius = ParseFloat(data, 13, nameof(Radius));
       Timer = ParseFloat(data, 14, nameof(Timer));
       Speed = ParseFloat(data, 15, nameof(Speed));
-      ActionFrequency[0] = ParseFloat(data, 16, nameof(ActionFrequency) + "[0]");
-      ActionFrequency[1] = ParseFloat(data, 17, nameof(ActionFrequency) + "[1]");
+      FirstActionFrequency = ParseFloat(data, 16, nameof(FirstActionFrequency));
+      SecondActionFrequency = ParseFloat(data, 17, nameof(SecondActionFrequency));
       SpeedMultiplier = ParseFloat(data, 18, nameof(SpeedMultiplier));
       RadiusLimit = ParseFloat(data, 19, nameof(RadiusLimit));
       WanderRadius = ParseFloat(data, 20, nameof(WanderRadius));
@@ -744,94 +751,6 @@ namespace BugFablesEntityEditor.Models
         ReturnToHeight = ParseInt(data, 195, nameof(ReturnToHeight)) == 1;
       else
         ReturnToHeight = ParseBool(data, 195, nameof(ReturnToHeight));
-    }
-
-    public void ResetToDefault()
-    {
-      EntityType = NPCType.NPC;
-      ObjectType = ObjectTypes.None;
-      Behaviors[0] = ActionBehaviors.None;
-      Behaviors[1] = ActionBehaviors.None;
-      InteractType = Interaction.None;
-      DestroyType = DeathType.None;
-      StartPos.x = 0f;
-      StartPos.y = 0f;
-      StartPos.z = 0f;
-      AnimId = 0;
-      Flip = false;
-      CcolHeight = 0f;
-      CcolRadius = 0f;
-      Radius = 0f;
-      Timer = 0f;
-      Speed = 0f;
-      ActionFrequency[0] = 0f;
-      ActionFrequency[1] = 0f;
-      SpeedMultiplier = 0f;
-      RadiusLimit = 0f;
-      WanderRadius = 0f;
-      TeleportRadius = 0f;
-      HasBoxCol = false;
-      BoxColIsTrigger = false;
-      BoxColSize.x = 0f;
-      BoxColSize.y = 0f;
-      BoxColSize.z = 0f;
-      BoxColCenter.x = 0f;
-      BoxColCenter.y = 0f;
-      BoxColCenter.z = 0f;
-      FreezeTime = 0f;
-      FreezeSize.x = 0f;
-      FreezeSize.y = 0f;
-      FreezeSize.z = 0f;
-      FreezeOffset.x = 0f;
-      FreezeOffset.y = 0f;
-      FreezeOffset.z = 0f;
-      EventId = 0;
-      RequiresLength = 0;
-      for (int i = 0; i < Requires.Length; i++)
-        Requires[i].Value = 0;
-      LimitLength = 0;
-      for (int i = 0; i < Limit.Length; i++)
-        Limit[i].Value = 0;
-      DataLength = 0;
-      for (int i = 0; i < Limit.Length; i++)
-        Data[i].Value = 0;
-      VectorDataLength = 0;
-      for (int i = 0; i < VectorData.Length; i++)
-      {
-        VectorData[i].Value.x = 0f;
-        VectorData[i].Value.y = 0f;
-        VectorData[i].Value.z = 0f;
-      }
-      DialoguesLength = 0;
-      for (int i = 0; i < Dialogues.Length; i++)
-      {
-        Dialogues[i].Value.x = 0f;
-        Dialogues[i].Value.y = 0f;
-        Dialogues[i].Value.z = 0f;
-      }
-      EulerAngles.x = 0f;
-      EulerAngles.y = 0f;
-      EulerAngles.z = 0f;
-      BattleIdsLength = 0;
-      for (int i = 0; i < BattleIds.Length; i++)
-        BattleIds[i].Value = 0;
-      TagColor = default(Color);
-      EmoticonOffset.x = 0f;
-      EmoticonOffset.y = 0f;
-      EmoticonOffset.z = 0f;
-      InsideId = 0;
-      for (int i = 0; i < EmoticonFlag.Length; i++)
-      {
-        EmoticonFlag[i].Value.x = 0;
-        EmoticonFlag[i].Value.y = 0;
-      }
-      TattleId = 0;
-      RegionalFlag = 0;
-      InitialHeight = 0f;
-      BobRange = 0f;
-      BobSpeed = 0f;
-      ActivationFlag = 0;
-      ReturnToHeight = false;
     }
 
     private T ParseEnum<T>(string[] data, int fieldIndex, string enumName) where T : struct, Enum
