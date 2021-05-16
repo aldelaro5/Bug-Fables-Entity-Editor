@@ -4,6 +4,10 @@ using Avalonia.Markup.Xaml;
 using BugFablesEntityEditor.Models;
 using BugFablesEntityEditor.ViewModels;
 using BugFablesEntityEditor.Views;
+using Common.MessageBox.Enums;
+using ReactiveUI;
+using System;
+using System.Reactive;
 
 namespace BugFablesEntityEditor
 {
@@ -25,6 +29,12 @@ namespace BugFablesEntityEditor
       }
 
       base.OnFrameworkInitializationCompleted();
+
+      RxApp.DefaultExceptionHandler = Observer.Create<Exception>((ex) =>
+      {
+        CommonUtils.GetMessageBox("Unexpected error", "An unexpected error occured: " +
+            ex.Message, ButtonEnum.Ok, Icon.Error).ShowDialog(CommonUtils.MainWindow);
+      });
     }
   }
 }
