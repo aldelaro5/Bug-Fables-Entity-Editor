@@ -1,10 +1,10 @@
-THIS REPOSITORY IS CURRENTLY IN A WORK IN PROGRESS STATE, THIS IS NOT READY FOR GENERAL USE YET.
-
 # Bug-Fables-Entity-Editor
 <p align="center">
-  <img src="https://raw.githubusercontent.com/aldelaro5/Bug-Fables-Entity-Editor/master/Assets/icon.png" />
+  <img src="https://raw.githubusercontent.com/aldelaro5/Bug-Fables-Entity-Editor/master/Assets/icon.ico" />
   <br />
-  Icon by	<a href="https://github.com/CerisWhite">Ceris</a>
+  Icon by	<a href="https://github.com/CerisWhite">Ceris</a> from modified in-game asset
+  <br />
+  <img src="https://raw.githubusercontent.com/aldelaro5/Bug-Fables-Entity-Editor/master/Docs/Screenshot.png">
 </p>
 
 An entity editor for the game [Bug Fables: The Everlasting Sapling](https://store.steampowered.com/app/1082710/Bug_Fables_The_Everlasting_Sapling/) made in .NET 5. It supports the consultation and modification of all fields of every entities in the game.
