@@ -575,21 +575,21 @@ namespace BugFablesEntityEditor.Models
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < Requires.Length; i++)
       {
-        sb.Append(Requires[i]);
+        sb.Append(Requires[i].Value);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(LimitLength);
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < Limit.Length; i++)
       {
-        sb.Append(Limit[i]);
+        sb.Append(Limit[i].Value);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(DataLength);
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < Data.Length; i++)
       {
-        sb.Append(Data[i]);
+        sb.Append(Data[i].Value);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(VectorDataLength);
@@ -624,7 +624,7 @@ namespace BugFablesEntityEditor.Models
       sb.Append(CommonUtils.FieldSeparator);
       for (int i = 0; i < BattleIds.Length; i++)
       {
-        sb.Append(BattleIds[i]);
+        sb.Append(BattleIds[i].Value);
         sb.Append(CommonUtils.FieldSeparator);
       }
       sb.Append(TagColor.R);

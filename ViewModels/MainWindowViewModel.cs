@@ -102,6 +102,7 @@ namespace BugFablesEntityEditor.ViewModels
           RebuildLineIndexesDescriptions();
         }
         this.RaisePropertyChanged(nameof(CurrentKey));
+        this.RaisePropertyChanged(nameof(EntitySelected));
         this.RaisePropertyChanged(nameof(CurrentEntity));
       }
     }
@@ -114,6 +115,7 @@ namespace BugFablesEntityEditor.ViewModels
       {
         _selectedLineIndex = value;
         this.RaisePropertyChanged();
+        this.RaisePropertyChanged(nameof(EntitySelected));
         this.RaisePropertyChanged(nameof(CurrentEntity));
       }
     }
@@ -138,6 +140,14 @@ namespace BugFablesEntityEditor.ViewModels
         if (CurrentKey == -1 || SelectedLineIndex == -1)
           return defaultEnitty;
         return EntityDirectory.Entities[CurrentKey][SelectedLineIndex];
+      }
+    }
+
+    public bool EntitySelected 
+    { 
+      get
+      {
+        return DirectoryInUse && CurrentKey != -1 && SelectedLineIndex != -1;
       }
     }
 
@@ -235,6 +245,12 @@ namespace BugFablesEntityEditor.ViewModels
       {
         Entity ent = new Entity();
         ent.Name = "New Entity";
+        ent.EntityType = NPCType.NPC;
+        ent.ObjectType = ObjectTypes.None;
+        ent.DestroyType = DeathType.None;
+        ent.InteractType = Interaction.None;
+        ent.Behaviors[0] = ActionBehaviors.None;
+        ent.Behaviors[1] = ActionBehaviors.None;
         EntityDirectory.Entities[CurrentKey].Add(ent);
         RebuildLineIndexesDescriptions();
         SelectedLineIndex = EntityDirectory.Entities[CurrentKey].Count - 1;
@@ -256,14 +272,11 @@ namespace BugFablesEntityEditor.ViewModels
         {
           CurrentEntity.Name = savedName;
         }
-      }, this.WhenAnyValue(x => x.DirectoryInUse, x => x.CurrentKey, x => x.SelectedLineIndex,
-                          (directoryInUse, currentKey, selectedLineIndex) =>
-                            directoryInUse && currentKey != -1 && selectedLineIndex != -1));
+      }, this.WhenAnyValue(x => x.EntitySelected));
     }
 
     public async void OpenDirectory()
     {
-      throw new Exception("this is a test");
       if (DirectoryInUse && !directorySaved)
       {
         var msg = CommonUtils.GetMessageBox("Directory in use", "An unsaved directory is currently in use, " +
@@ -314,7 +327,7 @@ namespace BugFablesEntityEditor.ViewModels
         if (key < 0 || key >= (int)Map.COUNT)
           KeysDescriptions.Add(key.ToString());
         else
-          KeysDescriptions.Add(mapDescriptions[key]);
+          KeysDescriptions.Add(key.ToString() + " - " + mapDescriptions[key]);
       }
       this.RaisePropertyChanged(nameof(KeysDescriptions));
     }

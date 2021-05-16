@@ -39,7 +39,7 @@ namespace BugFablesEntityEditor.ViewModels
       {
         ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
             .Open(new Uri(
-                $" avares://BugFablesDataEditor/Assets/MessageBox/{@params.Icon.ToString().ToLowerInvariant()}.png")));
+                $" avares://BugFablesEntityEditor/Assets/MessageBox/{@params.Icon.ToString().ToLowerInvariant()}.png")));
       }
 
       MaxWidth = @params.MaxWidth;

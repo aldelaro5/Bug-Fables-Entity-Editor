@@ -41,14 +41,14 @@
           </StackPanel>
           <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
             <Label VerticalContentAlignment="Center" Content="Current Map"/>
-            <ComboBox Width="200" SelectedIndex="{Binding SelectedKeyIndex}" Items="{Binding KeysDescriptions}" />
+            <ComboBox Width="330" SelectedIndex="{Binding SelectedKeyIndex}" Items="{Binding KeysDescriptions}" />
             <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Name"/>
             <ComboBox Width="300" SelectedIndex="{Binding SelectedLineIndex}" Items="{Binding LineIndexesDescriptions}"/>
             <Label Margin="5,0,0,0" VerticalContentAlignment="Center" Content="Tag color"/>
-            <colorpicker:ColorButton Color="{Binding CurrentEntity.TagColor}"/>
+            <colorpicker:ColorButton Color="{Binding CurrentEntity.TagColor}" IsEnabled="{Binding EntitySelected}"/>
           </StackPanel>
         </StackPanel>
-        <TabControl HorizontalAlignment="Center" IsEnabled="{Binding DirectoryInUse}">
+        <TabControl HorizontalAlignment="Center" IsEnabled="{Binding EntitySelected}">
           <TabItem Header="General" Content="{Binding GeneralView}"/>
           <TabItem Header="Actions &amp; Location" Content="{Binding ActionsLocationView}"/>
           <TabItem Header="Properties" Content="{Binding PropertiesView}"/>
